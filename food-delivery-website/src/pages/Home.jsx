@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Nav from "../components/Nav";
 import Categories from "../Category";
 import Card from "../components/Card";
 import { food_items } from "../food";
 import { RxCross2 } from "react-icons/rx";
+import { dataContext } from '../Context/UserContext';
 
 const Home = () => {
-  let [cate, setCate] = useState(food_items);
-  const [showCart, setShowCart] = useState(false); // Define showCart state
+  const { cate, setCate, showCart, setShowCart } = useContext(dataContext);
 
   function filterCategory(category) {
     if (category === "All") {
